@@ -1,2 +1,2 @@
 # PublishedSwiftUI
-Combine based models on ViewStates for SwiftUI
+Combine based universal model on ViewStates for SwiftUI
