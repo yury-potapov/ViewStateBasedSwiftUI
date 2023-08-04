@@ -3,21 +3,16 @@ import UIKit
 import SwiftUI
 import ViewStateBasedSwiftUI
 
-@MainActor
-class TimerViewController: AsyncUIHostingController<TimerView, TimerViewState, Void, EmptyView> {
-    
-    init(timeManager: TimeManager) {
-        let interactor = TimerViewInteractor(timeManager: timeManager)
+typealias TimerViewController = AsyncUIHostingController<TimerView, TimerViewState, Void, EmptyView>
 
-        super.init(viewStatesProvider: interactor) {
+extension TimerViewController {
+    convenience init(timeManager: TimeManager) {
+        let interactor = TimerViewInteractor(timeManager: timeManager)
+        self.init(viewStatesProvider: interactor) {
             TimerView(viewModel: $0)
         } placeholder: {
             EmptyView()
         }
-    }
-                   
-    required dynamic init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 
