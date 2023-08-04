@@ -4,13 +4,15 @@ import SwiftUI
 import ViewStateBasedSwiftUI
 
 @MainActor
-class TimerViewController: AsyncUIHostingController<TimerView, TimerViewState, Void> {
+class TimerViewController: AsyncUIHostingController<TimerView, TimerViewState, Void, EmptyView> {
     
     init(timeManager: TimeManager) {
         let interactor = TimerViewInteractor(timeManager: timeManager)
 
         super.init(viewStatesProvider: interactor) {
             TimerView(viewModel: $0)
+        } placeholder: {
+            EmptyView()
         }
     }
                    

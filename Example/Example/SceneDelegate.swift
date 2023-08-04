@@ -5,7 +5,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    let timeManager = SystemTimeManager()
+    let timeManager = TimeManagerImpl()
 
     func scene(
         _ scene: UIScene,

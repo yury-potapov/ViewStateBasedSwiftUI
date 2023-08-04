@@ -28,18 +28,3 @@ public struct TimerView: View {
     @ObservedObject
     private var viewModel: ViewModel
 }
-
-struct TimerView_Previews : PreviewProvider {
-
-    private static var viewModel = TimerView.ViewModel(
-        TimerViewState(
-            startDate: Date(timeIntervalSince1970: .zero),
-            date: Date(timeIntervalSince1970: .zero)
-        )
-    )
-
-    static var previews: some View {
-        TimerView(viewModel: viewModel)
-    }
-
-}

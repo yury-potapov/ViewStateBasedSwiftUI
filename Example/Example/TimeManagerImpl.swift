@@ -2,7 +2,7 @@ import AsyncAlgorithms
 import Combine
 import Foundation
 
-actor SystemTimeManager: TimeManager {
+actor TimeManagerImpl: TimeManager {
     
     init(startDate: Date = Date()) {
         startTime = startDate
@@ -18,7 +18,6 @@ actor SystemTimeManager: TimeManager {
     private(set) var currentTime: Date {
         didSet {
             timeStreamContinuation?.yield(currentTime)
-            timePublisherImpl.send(currentTime)
         }
     }
     
@@ -34,12 +33,11 @@ actor SystemTimeManager: TimeManager {
     private let step: Duration = .seconds(1)
     
     private var timeStreamContinuation: AsyncStream<Date>.Continuation? = nil
-    private let timePublisherImpl = PassthroughSubject<Date, Never>()
     
     private func start() async {
         let startClock = SuspendingClock.Instant.now
         for await newClock in AsyncTimerSequence.repeating(every: .seconds(1)) {
-            duration = newClock.duration(to: startClock)
+            duration = startClock.duration(to: newClock)
             let newTimeInterval = duration.timeInterval
             currentTime = Date(timeInterval: newTimeInterval, since: startTime)
         }
