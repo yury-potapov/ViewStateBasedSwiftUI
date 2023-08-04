@@ -1,2 +1,2 @@
-# PublishedSwiftUI
-Combine based universal model on ViewStates for SwiftUI
+# ViewStateSwiftUI
+Universal framework to use in production with ViewState-based models for SwiftUI
