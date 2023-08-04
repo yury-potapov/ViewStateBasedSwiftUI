@@ -1,3 +1,4 @@
+import AsyncAlgorithms
 import SwiftUI
 import ViewStateBasedSwiftUI
 
@@ -14,31 +15,26 @@ extension TimerViewController {
     }
 }
 
-private final class TimerViewInteractor: AsyncViewStatesProvider {
+private final class TimerViewInteractor: AsyncViewStatesProvider, Sendable {
     
     var initialViewState: TimerViewState {
         get async {
             await TimerViewState(startDate: timeManager.startTime, date: timeManager.currentTime)
         }
     }
-    
-    // Can be written with `some`?
-    var viewStateUpdates: AsyncMapSequence<AsyncStream<Date>, TimerViewState> {
+
+    var viewStateUpdates: any ViewStateUpdates<TimerViewState> {
         get async {
             let startDate = await timeManager.startTime
             let dateUpdates = await timeManager.timeUpdates
-            return dateUpdates.map { TimerViewState(startDate: startDate, date: $0) }
+            let baseUpdates = dateUpdates.map { TimerViewState(startDate: startDate, date: $0) }
+            return ViewStateSequenceWrapper(baseUpdates)
         }
     }
     
     init(timeManager: TimeManager) {
         self.timeManager = timeManager
-        stream = AsyncStream { continuation in
-            
-        }
     }
     
     private let timeManager: TimeManager
-    private let stream: AsyncStream<TimerViewState>
-    
 }
