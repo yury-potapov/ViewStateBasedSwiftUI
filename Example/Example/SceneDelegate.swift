@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let uiscene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = TimerViewController(timeManager: timeManager)
+        window.rootViewController = TimerViewController(viewModel: timeManager)
         window.makeKeyAndVisible()
         window.windowScene = uiscene
         self.window = window
@@ -26,3 +26,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {}
     func sceneDidEnterBackground(_ scene: UIScene) {}
 }
+
+extension TimeManagerImpl: TimerViewModel { }
