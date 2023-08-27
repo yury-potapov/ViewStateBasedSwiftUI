@@ -2,31 +2,26 @@ import AsyncAlgorithms
 import SwiftUI
 import ViewStateBasedSwiftUI
 
-final class TimerViewController: UIHostingController<TimerView> {
-    init(viewModel: TimerViewModel) {
-        super.init(rootView: TimerView(viewModel: viewModel))
-    }
-    
-    @MainActor required dynamic init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+typealias TimerViewControllerOnViewState = AsyncUIHostingController<
+    TimerViewOnViewState,
+    TimerViewState,
+    Void,
+    EmptyView
+>
+
+extension TimerViewControllerOnViewState {
+    convenience init(timeManager: TimeManager) {
+        let interactor = TimerViewInteractor(timeManager: timeManager)
+        self.init(viewStatesProvider: interactor) {
+            TimerViewOnViewState(viewModel: $0)
+        } placeholder: {
+            EmptyView()
+        }
     }
 }
 
-//typealias TimerViewController = AsyncUIHostingController<TimerView, TimerViewState, Void, EmptyView>
-//
-//extension TimerViewController {
-//    convenience init(timeManager: TimeManager) {
-//        let interactor = TimerViewInteractor(timeManager: timeManager)
-//        self.init(viewStatesProvider: interactor) {
-//            TimerView(viewModel: TimerViewModelImpl(timeManager: timeManager))
-//        } placeholder: {
-//            EmptyView()
-//        }
-//    }
-//}
-
 private final class TimerViewInteractor: AsyncViewStatesProvider, Sendable {
-    
+
     var initialViewState: TimerViewState {
         get async {
             await TimerViewState(startDate: timeManager.startTime, date: timeManager.currentTime)
@@ -41,10 +36,10 @@ private final class TimerViewInteractor: AsyncViewStatesProvider, Sendable {
             return ViewStateSequenceWrapper(baseUpdates)
         }
     }
-    
+
     init(timeManager: TimeManager) {
         self.timeManager = timeManager
     }
-    
+
     private let timeManager: TimeManager
 }

@@ -25,8 +25,6 @@ actor TimeManagerImpl: TimeManager {
         timeStreamContinuation = continuation
     }
     
-//    var timePublisher: any Publisher<Date, Never> { timePublisherImpl }
-    
     // MARK: - Private
     
     private var duration: Duration = .zero
