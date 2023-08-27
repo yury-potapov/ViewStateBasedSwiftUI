@@ -2,13 +2,18 @@ import AsyncAlgorithms
 import SwiftUI
 import ViewStateBasedSwiftUI
 
-typealias TimerViewController = AsyncUIHostingController<TimerView, TimerViewState, Void, EmptyView>
+typealias TimerViewControllerOnViewState = AsyncUIHostingController<
+    TimerViewOnViewState,
+    TimerViewState,
+    Void,
+    EmptyView
+>
 
-extension TimerViewController {
+extension TimerViewControllerOnViewState {
     convenience init(timeManager: TimeManager) {
         let interactor = TimerViewInteractor(timeManager: timeManager)
         self.init(viewStatesProvider: interactor) {
-            TimerView(viewModel: $0)
+            TimerViewOnViewState(viewModel: $0)
         } placeholder: {
             EmptyView()
         }
@@ -16,7 +21,7 @@ extension TimerViewController {
 }
 
 private final class TimerViewInteractor: AsyncViewStatesProvider, Sendable {
-    
+
     var initialViewState: TimerViewState {
         get async {
             await TimerViewState(startDate: timeManager.startTime, date: timeManager.currentTime)
@@ -31,10 +36,10 @@ private final class TimerViewInteractor: AsyncViewStatesProvider, Sendable {
             return ViewStateSequenceWrapper(baseUpdates)
         }
     }
-    
+
     init(timeManager: TimeManager) {
         self.timeManager = timeManager
     }
-    
+
     private let timeManager: TimeManager
 }

@@ -7,27 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB0D31262A9B4DEE002882C7 /* TimerViewOnViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D31252A9B4DEE002882C7 /* TimerViewOnViewState.swift */; };
+		FB0D31282A9B50A2002882C7 /* TimerViewControllerOnViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D31272A9B50A2002882C7 /* TimerViewControllerOnViewState.swift */; };
 		FB926EF22A7D502700FBCADA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB926EF12A7D502700FBCADA /* AppDelegate.swift */; };
 		FB926EF42A7D502700FBCADA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB926EF32A7D502700FBCADA /* SceneDelegate.swift */; };
 		FB926EFB2A7D502800FBCADA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB926EFA2A7D502800FBCADA /* Assets.xcassets */; };
-		FB926F092A7D507500FBCADA /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB926F052A7D507500FBCADA /* TimerViewController.swift */; };
+		FB926F092A7D507500FBCADA /* TimerViewControllerOnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB926F052A7D507500FBCADA /* TimerViewControllerOnViewModel.swift */; };
 		FB926F0A2A7D507500FBCADA /* TimeManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB926F062A7D507500FBCADA /* TimeManagerImpl.swift */; };
 		FB926F0B2A7D507500FBCADA /* TimeManagerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB926F072A7D507500FBCADA /* TimeManagerInterface.swift */; };
-		FB926F0C2A7D507500FBCADA /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB926F082A7D507500FBCADA /* TimerView.swift */; };
+		FB926F0C2A7D507500FBCADA /* TimerViewOnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB926F082A7D507500FBCADA /* TimerViewOnViewModel.swift */; };
 		FB9FF8E22A7D519B00DCA25D /* ViewStateBasedSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FB9FF8E12A7D519B00DCA25D /* ViewStateBasedSwiftUI */; };
 		FB9FF8E52A7D521F00DCA25D /* AsyncAlgorithms in Frameworks */ = {isa = PBXBuildFile; productRef = FB9FF8E42A7D521F00DCA25D /* AsyncAlgorithms */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB0D31252A9B4DEE002882C7 /* TimerViewOnViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewOnViewState.swift; sourceTree = "<group>"; };
+		FB0D31272A9B50A2002882C7 /* TimerViewControllerOnViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewControllerOnViewState.swift; sourceTree = "<group>"; };
 		FB926EEE2A7D502700FBCADA /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB926EF12A7D502700FBCADA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB926EF32A7D502700FBCADA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FB926EFA2A7D502800FBCADA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB926EFF2A7D502800FBCADA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB926F052A7D507500FBCADA /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		FB926F052A7D507500FBCADA /* TimerViewControllerOnViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewControllerOnViewModel.swift; sourceTree = "<group>"; };
 		FB926F062A7D507500FBCADA /* TimeManagerImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManagerImpl.swift; sourceTree = "<group>"; };
 		FB926F072A7D507500FBCADA /* TimeManagerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeManagerInterface.swift; sourceTree = "<group>"; };
-		FB926F082A7D507500FBCADA /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		FB926F082A7D507500FBCADA /* TimerViewOnViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewOnViewModel.swift; sourceTree = "<group>"; };
 		FB926F0E2A7D50CB00FBCADA /* ViewStateBasedSwiftUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ViewStateBasedSwiftUI; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,8 +73,10 @@
 				FB926EF32A7D502700FBCADA /* SceneDelegate.swift */,
 				FB926F062A7D507500FBCADA /* TimeManagerImpl.swift */,
 				FB926F072A7D507500FBCADA /* TimeManagerInterface.swift */,
-				FB926F082A7D507500FBCADA /* TimerView.swift */,
-				FB926F052A7D507500FBCADA /* TimerViewController.swift */,
+				FB926F082A7D507500FBCADA /* TimerViewOnViewModel.swift */,
+				FB0D31252A9B4DEE002882C7 /* TimerViewOnViewState.swift */,
+				FB926F052A7D507500FBCADA /* TimerViewControllerOnViewModel.swift */,
+				FB0D31272A9B50A2002882C7 /* TimerViewControllerOnViewState.swift */,
 				FB926EFA2A7D502800FBCADA /* Assets.xcassets */,
 				FB926EFF2A7D502800FBCADA /* Info.plist */,
 			);
@@ -168,11 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB926F0C2A7D507500FBCADA /* TimerView.swift in Sources */,
+				FB0D31282A9B50A2002882C7 /* TimerViewControllerOnViewState.swift in Sources */,
+				FB926F0C2A7D507500FBCADA /* TimerViewOnViewModel.swift in Sources */,
+				FB0D31262A9B4DEE002882C7 /* TimerViewOnViewState.swift in Sources */,
 				FB926F0A2A7D507500FBCADA /* TimeManagerImpl.swift in Sources */,
 				FB926F0B2A7D507500FBCADA /* TimeManagerInterface.swift in Sources */,
 				FB926EF22A7D502700FBCADA /* AppDelegate.swift in Sources */,
-				FB926F092A7D507500FBCADA /* TimerViewController.swift in Sources */,
+				FB926F092A7D507500FBCADA /* TimerViewControllerOnViewModel.swift in Sources */,
 				FB926EF42A7D502700FBCADA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
